@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from main.models import Player
+from main import models
 
 
 class PlayerCreateSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class PlayerCreateSerializer(serializers.ModelSerializer):
         return age
 
     class Meta:
-        model = Player
+        model = models.Player
         fields = (
             'id',
             'name',
@@ -31,6 +31,12 @@ class PlayerCreateSerializer(serializers.ModelSerializer):
 class PlayerViewSerializer(serializers.ModelSerializer):
     """ Used for both the list and retrieve viewset actions. """
     class Meta:
-        model = Player
+        model = models.Player
         fields = '__all__'
 
+
+class CompanionSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = models.Companion
+        fields = '__all__'

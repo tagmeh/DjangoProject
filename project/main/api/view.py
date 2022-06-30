@@ -20,3 +20,9 @@ class PlayerViewSet(ModelViewSet):
     def perform_create(self, serializer):
         serializer.type = random.choice(PlayerTypes.choices)
         serializer.save()
+
+
+class CompanionViewSet(ModelViewSet):
+    queryset = models.Companion.objects.all()
+    lookup_field = 'pk'
+    serializer_class = serializers.CompanionSerializer
